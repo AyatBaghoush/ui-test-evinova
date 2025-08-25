@@ -1,0 +1,25 @@
+{
+  "name": "ui-test-evinova",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AyatBaghoush/ui-test-evinova.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AyatBaghoush/ui-test-evinova/issues"
+  },
+  "homepage": "https://github.com/AyatBaghoush/ui-test-evinova#readme",
+  "description": "",
+  "devDependencies": {
+    "@cucumber/cucumber": "^12.2.0",
+    "dotenv": "^17.2.1",
+    "playwright": "^1.55.0"
+  }
+}
