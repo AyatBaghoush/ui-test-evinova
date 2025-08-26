@@ -52,7 +52,7 @@ class CustomWorld {
       await this.attach(screenshotBuffer, 'image/png');
     }
   }
-  async attach()
+  async getAttach()
   {
     return this.attach;
   }

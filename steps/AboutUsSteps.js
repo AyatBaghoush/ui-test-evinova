@@ -2,7 +2,7 @@ const { Given, When, Then } = require('@cucumber/cucumber');
 const HomePage = require('../pages/HomePage');
 const AboutUsPage = require('../pages/AboutUsPage');
 const { expect } = require('@playwright/test');
-const { attachScreenshot } = require('../helpers/reporting');
+const { attachScreenshot, attachText  } = require('../helpers/reporting');
 
 let homePage, aboutUsPage;
 
@@ -21,7 +21,9 @@ Then(/^User should see the page title as "(.*)"$/, { timeout: 60000 }, async fun
     aboutUsPage = new AboutUsPage(this.page);
     const actualTitle = await aboutUsPage.getTitle();
     console.log('Actual page title: ' + actualTitle);
-    await this.page.pause()
-    await attachScreenshot(this.page, 'AboutUsPage');
+    console.log('Expected page title: ' + expectedTitle);
+    const isMatch = expectedTitle === actualTitle;
+    await attachText(this.attach, 'About Us Page Title', isMatch, expectedTitle, actualTitle);
+   // await attachScreenshot(this.attach, this.page, 'AboutUsPage');
     expect(actualTitle).toBe(expectedTitle, `Expected page title to be "${expectedTitle}", but got "${actualTitle}"`);
 });
