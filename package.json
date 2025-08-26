@@ -4,6 +4,8 @@
   "main": "index.js",
   "scripts": {
     "test": "cucumber-js",
+    "test:chromium": "BROWSER=chromium cucumber-js",
+    "test:firefox": "BROWSER=firefox cucumber-js",
     "report:open": "allure open ./reports/allure-report",
     "report:generate": "allure generate --clean ./reports/allure-results -o ./reports/allure-report",
     "archive:reports": "mkdir -p reports/archived-reports && tar -czf reports/archived-reports/iapf-report-$(date +\"%Y%m%d-%H%M%S\").tgz -C reports allure-report cucumber-report.html report.json || echo 'No report to archive'",
