@@ -1,7 +1,10 @@
 const { Given, When, Then } = require('@cucumber/cucumber');
 const HomePage = require('../pages/HomePage');
+const AboutUsPage = require('../pages/AboutUsPage');
+const { expect } = require('@playwright/test');
+const { attachScreenshot } = require('../helpers/reporting');
 
-let homePage;
+let homePage, aboutUsPage;
 
 Given('User is on the home page', { timeout: 60000 }, async function () {
     console.log('User is on the home page');
@@ -9,18 +12,16 @@ Given('User is on the home page', { timeout: 60000 }, async function () {
     await homePage.navigateToHome();
 });
 
-/*When('User clicks on the About Us link', async function () {
-    console.log('User clicks on the About Us link');
-    HomePage homePage = new HomePage(this.page);
+When('User navigates to the About Us section', { timeout: 60000 }, async function () {
+    console.log('User clicks on the About Us link' + homePage);
     await homePage.clickAboutUs();
 });
 
-Then('User should be redirected to the About Us page', async function () {
-    console.log('User should be redirected to the About Us page');
-    // Here you would typically check the URL or page content to confirm redirection
-    // For example:
-    // const url = await this.page.url();
-    // if (!url.includes('about-us')) {
-    //     throw new Error('Not redirected to About Us page');
-    // }
-         });*/
+Then(/^User should see the page title as "(.*)"$/, { timeout: 60000 }, async function (expectedTitle) {
+    aboutUsPage = new AboutUsPage(this.page);
+    const actualTitle = await aboutUsPage.getTitle();
+    console.log('Actual page title: ' + actualTitle);
+    await this.page.pause()
+    await attachScreenshot(this.page, 'AboutUsPage');
+    expect(actualTitle).toBe(expectedTitle, `Expected page title to be "${expectedTitle}", but got "${actualTitle}"`);
+});

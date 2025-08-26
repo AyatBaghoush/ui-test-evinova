@@ -4,11 +4,10 @@
   "main": "index.js",
   "scripts": {
     "test": "cucumber-js",
-  "report:open": "allure open ./reports/allure-report",
-   "report:generate": "allure generate --clean ./reports/allure-results -o ./reports/allure-report",
-
+    "report:open": "allure open ./reports/allure-report",
+    "report:generate": "allure generate --clean ./reports/allure-results -o ./reports/allure-report",
     "archive:reports": "mkdir -p reports/archived-reports && tar -czf reports/archived-reports/iapf-report-$(date +\"%Y%m%d-%H%M%S\").tgz -C reports allure-report cucumber-report.html report.json || echo 'No report to archive'",
-    "report": "npm run test && npm run report:generates && npm run report:open"
+    "report": "npm run test || true && npm run report:generate && npm run report:open"
   },
   "repository": {
     "type": "git",
@@ -29,5 +28,8 @@
     "allure-playwright": "^3.3.3",
     "dotenv": "^17.2.1",
     "playwright": "^1.55.0"
+  },
+  "dependencies": {
+    "sharp": "^0.34.3"
   }
 }
