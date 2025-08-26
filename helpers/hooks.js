@@ -9,5 +9,5 @@ Before(async function () {
 });
 
 After(async function () {
-  if (this.browser) await this.closeBrowser()
+ if (this.browser) await this.closeBrowser()
 });

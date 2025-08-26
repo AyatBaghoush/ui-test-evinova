@@ -17,11 +17,12 @@ class CustomWorld {
    * Initializes a new CustomWorld instance.
    * @param {object} options - Options containing Cucumber parameters.
    */
-  constructor({ parameters }) {
+  constructor({attach, parameters }) {
     this.browserType = parameters.browser || process.env.BROWSER || 'chromium';
     this.browser = null;
     this.context = null;
     this.page = null;
+    this.attach = attach; // Attach function for embedding data in reports
   }
 
   /**
@@ -45,6 +46,16 @@ class CustomWorld {
     return this.browser;
   }
 
+  async attachScreenshot(name = 'Screenshot') {
+    if (this.page && this.attach) {
+      const screenshotBuffer = await this.page.screenshot({ fullPage: true });
+      await this.attach(screenshotBuffer, 'image/png');
+    }
+  }
+  async attach()
+  {
+    return this.attach;
+  }
   /**
    * Closes the page, context, and browser if they exist.
    */

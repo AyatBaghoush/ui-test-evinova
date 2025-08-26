@@ -3,14 +3,20 @@ const BasePage = require('./BasePage');
 class HomePage extends BasePage {
   constructor(page) {
     super(page);
-    this.aboutUsLink = '#username';
+    this.aboutUsLink = '//a[@href="about-us"]';
+    this.acceptCookiesBtn = '.wscrBannerContentInner .wscrOk';
   }
 
     async navigateToHome() {
-        await this.page.goto(process.env.BASE_URL);
+      await this.navigate(process.env.BASE_URL);
+      if (await this.isVisible(this.acceptCookiesBtn)) {
+        console.log('Accepting cookies: ' + this.acceptCookiesBtn);
+        await this.click(this.acceptCookiesBtn);
+      }
     }
     
     async clickAboutUs() {
+      console.log('Clicking on About Us link: ' + this.aboutUsLink);
         await this.click(this.aboutUsLink);
     }
 }

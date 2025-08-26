@@ -1,6 +1,8 @@
 module.exports = {
   //default: `--require ./steps/**/*.js`
     default: {
+        paths: ["features"],
+        dryRun: false,
       require: [
             "steps/**/*.js",
             "helpers/**/*.js"

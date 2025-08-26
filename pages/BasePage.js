@@ -8,7 +8,9 @@ class BasePage {
   }
   
   async click(selector) {
-    await this.page.click(selector);
+    console.log('Clicking on selector: ' + selector);
+    await this.page.waitForSelector(selector, { state: 'visible' , timeout: 5000 });
+      await this.page.click(selector);
   }
 
   async typeText(selector, text) {
@@ -25,6 +27,10 @@ class BasePage {
 
   async waitForSelector(selector) {
     await this.page.waitForSelector(selector);
+  }
+
+  async getTitle() {
+    return await this.page.title();
   }
 }
 
