@@ -4,7 +4,7 @@ class BasePage {
   }
 
   async navigate(url) {
-    await this.page.goto(url);
+    await this.page.goto(url, { waitUntil: 'domcontentloaded' });
   }
   
   async click(selector) {
