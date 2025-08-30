@@ -27,3 +27,15 @@ Then(/^User should see the page title as "(.*)"$/, { timeout: 60000 }, async fun
    // await attachScreenshot(this.attach, this.page, 'AboutUsPage');
     expect(actualTitle).toBe(expectedTitle, `Expected page title to be "${expectedTitle}", but got "${actualTitle}"`);
 });
+    
+Then('User should see the team member profiles', { timeout: 60000 }, async function () {
+    const profilesVisible = await aboutUsPage.areTeamMemberProfilesVisible();
+    await attachScreenshot(this.attach, this.page, 'AboutUs_teamMemberSection');
+    expect(profilesVisible).toBe(true, 'Expected team member profiles to be visible');
+});
+
+Then('User should see the company\'s history timeline', { timeout: 60000 }, async function () {
+    const timelineVisible = await aboutUsPage.isHistoryTimelineVisible();
+    await attachScreenshot(this.attach, this.page, 'AboutUsPage');
+    expect(timelineVisible).toBe(true, 'Expected company history timeline to be visible');
+});
