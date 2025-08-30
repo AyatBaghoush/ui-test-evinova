@@ -1,4 +1,6 @@
 const BasePage = require('./BasePage');
+const getLogger = require('../helpers/logger');
+const logger = getLogger('AboutUsPage');
 
 class AboutUsPage extends BasePage {
   constructor(page) {
@@ -8,13 +10,15 @@ class AboutUsPage extends BasePage {
   }
 
   async isHistoryTimelineVisible() {
-    await this.page.locator(this.historyTimeline).scrollIntoViewIfNeeded();
-    return this.page.isVisible(this.historyTimeline);
+    logger.debug('Checking visibility of history timeline');
+    await this.scrollToElement(this.historyTimeline);
+    return this.isVisible(this.historyTimeline);
   }
 
     async areTeamMemberProfilesVisible() {
-    await this.page.locator(this.teamMemberSection).scrollIntoViewIfNeeded();
-    return this.page.isVisible(this.teamMemberSection);
+    logger.debug('Checking visibility of team member profiles section');
+    await this.scrollToElement(this.teamMemberSection);
+    return this.isVisible(this.teamMemberSection);
   }
 
 }
