@@ -22,7 +22,7 @@ jobs:
       - name: Install dependencies
         run: |
             npm ci
-            nnpx playwright install --with-deps
+            npx playwright install --with-deps
 
       - name: Run Cucumber tests and generate report
         run: npx cucumber-js --format json:./reports/cucumber.json
