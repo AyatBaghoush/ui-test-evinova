@@ -45,17 +45,7 @@ class CustomWorld {
     this.page = await this.context.newPage();
     return this.browser;
   }
-
-  async attachScreenshot(name = 'Screenshot') {
-    if (this.page && this.attach) {
-      const screenshotBuffer = await this.page.screenshot({ fullPage: true });
-      await this.attach(screenshotBuffer, 'image/png');
-    }
-  }
-  async getAttach()
-  {
-    return this.attach;
-  }
+  
   /**
    * Closes the page, context, and browser if they exist.
    */

@@ -18,22 +18,22 @@ class ContactUsPage extends BasePage {
   }
 
   async fillContactForm( formDetails) {
-    await this.page.fill(this.firstName, formDetails.firstName);
-    await this.page.fill(this.lastName, formDetails.lastName);
-    await this.page.fill(this.email, formDetails.email);
-    await this.page.fill(this.company, formDetails.company);
+    await this.fill(this.firstName, formDetails.firstName);
+    await this.fill(this.lastName, formDetails.lastName);
+    await this.fill(this.email, formDetails.email);
+    await this.fill(this.company, formDetails.company);
     
-    await this.page.fill(this.phone, formDetails.phone);
-    await this.page.fill(this.title, formDetails.title);
-    await this.page.locator(this.country).selectOption(formDetails.country); 
-   await this.page.locator(this.therapeuticArea).selectOption(formDetails.therapeuticArea);
-   await this.page.locator(this.interestedIn).selectOption(formDetails.interestedIn);
+    await this.fill(this.phone, formDetails.phone);
+    await this.fill(this.title, formDetails.title);
+    await this.selectOption(this.country, formDetails.country); 
+    await this.selectOption(this.therapeuticArea, formDetails.therapeuticArea);
+    await this.selectOption(this.interestedIn, formDetails.interestedIn);
   }
 
 
   async verifySubmitButtonIsEnabled() {
-    await this.page.locator(this.submitFormButton).scrollIntoViewIfNeeded();
-    return this.page.isEnabled(this.submitFormButton);
+    await this.scrollToElement(this.submitFormButton);
+    return this.isElementEnabled(this.submitFormButton);
   }
 }
 

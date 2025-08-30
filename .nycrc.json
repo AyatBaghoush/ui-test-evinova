@@ -5,9 +5,8 @@
     ],
     "extension" : [".js"],
     "include": [
-        "helpers/**/*.js",
         "pages/**/*.js",
-        "step-definitions/**/*.js"
+        "steps/**/*.js"
     ],
     "exclude": [
         "node_modules/**",

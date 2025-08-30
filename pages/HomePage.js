@@ -1,4 +1,6 @@
 const BasePage = require('./BasePage');
+const getLogger = require('../helpers/logger');
+const logger = getLogger('Homepage');
 
 class HomePage extends BasePage {
   constructor(page) {
@@ -12,13 +14,15 @@ class HomePage extends BasePage {
       let url = process.env.BASE_URL || 'https://www.evinova.com';
       await this.navigate(url);
       if (await this.isVisible(this.acceptCookiesBtn)) {
-        console.log('Accepting cookies: ' + this.acceptCookiesBtn);
+        logger.debug('Cookies panel is visible, accepting cookies...');
         await this.click(this.acceptCookiesBtn);
+      }
+      else{
+        logger.debug('Cookies panel is not visible, continuing without accepting cookies.');
       }
     }
     
     async clickAboutUs() {
-      console.log('Clicking on About Us link: ' + this.aboutUsLink);
       await this.click(this.aboutUsLink);
     }
 
