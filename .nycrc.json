@@ -1,0 +1,16 @@
+{
+    "all": true,
+     "reporter": ["html",
+        "text-summary"
+    ],
+    "extension" : [".js"],
+    "include": [
+        "helpers/**/*.js",
+        "pages/**/*.js",
+        "step-definitions/**/*.js"
+    ],
+    "exclude": [
+        "node_modules/**",
+        "reports/**"
+    ]
+}
