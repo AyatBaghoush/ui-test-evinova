@@ -9,7 +9,8 @@ class HomePage extends BasePage {
   }
 
     async navigateToHome() {
-      await this.navigate(process.env.BASE_URL);
+      let url = process.env.BASE_URL || 'https://www.evinova.com';
+      await this.navigate(url);
       if (await this.isVisible(this.acceptCookiesBtn)) {
         console.log('Accepting cookies: ' + this.acceptCookiesBtn);
         await this.click(this.acceptCookiesBtn);
