@@ -10,7 +10,8 @@
     "report:open": "allure open ./reports/allure-report",
     "report:generate": "allure generate --clean ./reports/allure-results -o ./reports/allure-report",
     "archive:reports": "mkdir -p reports/archived-reports && tar -czf reports/archived-reports/iapf-report-$(date +\"%Y%m%d-%H%M%S\").tgz -C reports allure-report cucumber-report.html report.json || echo 'No report to archive'",
-    "test:report": "npm run test || true && npm run report:generate && npm run report:open"
+    "test:report": "npm run test || true && npm run report:generate && npm run report:open",
+    "report": "npm run report:generate && npm run report:open"
   },
   "repository": {
     "type": "git",

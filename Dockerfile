@@ -13,9 +13,11 @@ RUN npx -y playwright@1.54.0 install --with-deps
 
 RUN npx playwright install chromium
 
+
+
 COPY . .
 
 RUN chmod +x node_modules/.bin/*
 
 # Run tests
-CMD ["sh", "-c", "npm run test; npm run performance"]
+CMD ["sh", "-c", "npm run test"]
