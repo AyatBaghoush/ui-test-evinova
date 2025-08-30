@@ -1,7 +1,8 @@
 const { Before, After } = require('@cucumber/cucumber');
 const { setWorldConstructor } = require('@cucumber/cucumber');
 const CustomWorld = require('./world');
-const logger = require('../helpers/logger');
+const getLogger = require('../helpers/logger');
+const logger = getLogger('hooks');
 
 setWorldConstructor(CustomWorld);
 
