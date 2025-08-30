@@ -4,6 +4,7 @@ class HomePage extends BasePage {
   constructor(page) {
     super(page);
     this.aboutUsLink = '//a[@href="about-us"]';
+    this.contactUsLink = '//a[@href="contact-us"]';
     this.acceptCookiesBtn = '.wscrBannerContentInner .wscrOk';
   }
 
@@ -17,7 +18,11 @@ class HomePage extends BasePage {
     
     async clickAboutUs() {
       console.log('Clicking on About Us link: ' + this.aboutUsLink);
-        await this.click(this.aboutUsLink);
+      await this.click(this.aboutUsLink);
+    }
+
+    async clickContactUs() {
+      await this.click(this.contactUsLink);
     }
 }
 
