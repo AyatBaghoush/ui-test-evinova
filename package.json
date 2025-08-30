@@ -4,6 +4,7 @@
   "main": "index.js",
   "scripts": {
     "test": "cucumber-js",
+    "performance": "lhci autorun",
     "test:chromium": "BROWSER=chromium cucumber-js",
     "test:firefox": "BROWSER=firefox cucumber-js",
     "report:open": "allure open ./reports/allure-report",
@@ -25,6 +26,8 @@
   "description": "",
   "devDependencies": {
     "@cucumber/cucumber": "^12.2.0",
+    "@faker-js/faker": "^10.0.0",
+    "@lhci/cli": "^0.15.1",
     "allure-commandline": "^2.34.1",
     "allure-cucumberjs": "^3.3.3",
     "allure-playwright": "^3.3.3",
