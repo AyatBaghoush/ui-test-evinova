@@ -5,4 +5,5 @@ Feature: Contact Us
     Given User is on the home page
     When  User navigates to the Contact Us section
     And   User fills out the contact form with valid details
-    Then  User should find it possible to submit the form 
+    Then  User should find it possible to submit the form
+    And   The page should have accessibility violation less than 10
