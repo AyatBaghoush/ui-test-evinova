@@ -35,6 +35,8 @@ ui-test-evinova/
 ├── steps/                  # Step definitions
 ├── pages/                  # Page Object Classes
 ├── helpers/                # Helper classes (TestDataManager, Reporting, AccessibilityCheck,...etc)
+├── .github/                
+│   ├── workflows/          # CI/CD yaml configuration
 ├── cucumber.js             # Cucumber configuration
 ├── lighthouserc.json       # LighthouseCI configuration
 ├── .nycrc.json             # nyc configuration
@@ -43,5 +45,6 @@ ui-test-evinova/
 ```
 
 ---
+
 
 
