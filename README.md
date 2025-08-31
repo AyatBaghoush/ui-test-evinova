@@ -16,7 +16,7 @@ This framework combines the power of Playwright for fast, cross-browser automati
 
 ---
 
-# Technology Stack:
+## Technology Stack:
 1. **Playwright:**	Browser automation (Chromium, Firefox) - Cross-browser testing
 2. **Cucumber.js:**	BDD syntax for writing human-readable tests
 3. **Allure:**	Rich test reporting with visual insights
@@ -45,6 +45,59 @@ ui-test-evinova/
 ```
 
 ---
+
+## Setup and Installation
+
+1. **Clone the repository:**
+    ```bash
+    git clone <repository-url>
+    cd ui-test-evinova
+    ```
+
+2. **Install dependencies:**
+    ```bash
+    npm install
+    ```
+
+
+---
+
+## Running Tests
+
+- Run all Cucumber feature tests:
+    ```bash
+    npm run test
+    ```
+- Run a specific scenario:
+    ```bash
+    npm run test -- --tags <@scenario_tag> 
+    ```
+- Run tests on chromium:
+    ```bash
+    npm run test:chromium
+    ```
+- Run tests on firefox:
+    ```bash
+    npm run test:firefox
+    ```
+- Archive reports:
+    ```bash
+    npm run archive:reports
+    ```
+- Run all tests, generate and open report:
+    ```bash
+    npm run test:report
+    ```
+- Run performance check:
+    ```bash
+    npm run performance
+    ```
+- Run test and measuring coverage:
+    ```bash
+    npm run test:coverage
+    ```
+---
+
 
 
 
