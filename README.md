@@ -12,6 +12,7 @@ This framework combines the power of Playwright for fast, cross-browser automati
 - **Code Coverage:** Measuring code coverage
 - **CI-ready:** CI/CD integration using Github actions
 - **Containerization:** Using docker
+- **Accessibility Testing:** Running accessibility checks 
 
 ---
 
@@ -23,6 +24,24 @@ This framework combines the power of Playwright for fast, cross-browser automati
 5. **nyc:** Code coverage measurement
 6. **Docker:** Containerization
 7. **Github Actions:** CI/CD integration
+8. **Axe-core:** Accessibility testing
 
-   
+---
+## Project Structure
+
+```
+ui-test-evinova/
+├── features/               # Feature files
+├── steps/                  # Step definitions
+├── pages/                  # Page Object Classes
+├── helpers/                # Helper classes (TestDataManager, Reporting, AccessibilityCheck,...etc)
+├── cucumber.js             # Cucumber configuration
+├── lighthouserc.json       # LighthouseCI configuration
+├── .nycrc.json             # nyc configuration
+├── package.json            # Project dependencies and scripts
+└── README.md               # Project documentation
+```
+
+---
+
 
