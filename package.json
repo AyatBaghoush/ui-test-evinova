@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "test": "nyc cucumber-js",
+    "test": "cucumber-js",
     "performance": "lhci autorun",
     "test:chromium": "BROWSER=chromium cucumber-js",
     "test:firefox": "BROWSER=firefox cucumber-js",
@@ -12,7 +12,7 @@
     "archive:reports": "mkdir -p reports/archived-reports && tar -czf reports/archived-reports/iapf-report-$(date +\"%Y%m%d-%H%M%S\").tgz -C reports allure-report cucumber-report.html report.json || echo 'No report to archive'",
     "test:report": "npm run test || true && npm run report:generate && npm run report:open",
     "report": "npm run report:generate && npm run report:open",
-    "coverage": "nyc report --reporter=lcov --reporter=html --reporter=text-summary"
+    "test:coverage": "nyc --silent npm run test && nyc report --reporter=lcov --reporter=html --reporter=text-summary && open ./coverage/index.html"
   },
   "repository": {
     "type": "git",
