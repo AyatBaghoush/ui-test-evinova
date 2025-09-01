@@ -112,6 +112,10 @@ To spin up test environment and run tests inside container:
    npm run report:generate && npm run report:open
    ```
 
+---
+## CI/CD Link:
+[Link to CI/CD Runs](https://github.com/AyatBaghoush/ui-test-evinova/actions)
+
 
 
 
