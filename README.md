@@ -97,6 +97,18 @@ ui-test-evinova/
     npm run test:coverage
     ```
 ---
+## Docker Container Support
+To spin up test environment and run tests inside container:
+1. **Build Docker Image:**
+    ```bash
+    docker build -t <image-name> .
+    ```
+2. **Run Docker Container and Mount your current directory ($(pwd)) into the container at /app:**
+   ```bash
+   docker run --rm -v $(pwd):/app <image-name>
+   ```
+3. **Generate and Open Report:*
+
 
 
 
