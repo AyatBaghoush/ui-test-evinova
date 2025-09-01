@@ -107,7 +107,11 @@ To spin up test environment and run tests inside container:
    ```bash
    docker run --rm -v $(pwd):/app <image-name>
    ```
-3. **Generate and Open Report:*
+3. **Generate and Open Report:**
+   ```bash
+   npm run report:generate && npm run report:open
+   ```
+
 
 
 
